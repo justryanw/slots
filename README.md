@@ -1,0 +1,1 @@
+https://justryanw.github.io/slots/
