@@ -1,5 +1,5 @@
 {
-  "name": "my-vue-app",
+  "name": "slots",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,5 +11,8 @@
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "pixi.js": "^7.4.0"
   }
 }
