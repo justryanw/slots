@@ -37,6 +37,8 @@ jobs:
         uses: DeterminateSystems/flake-checker-action@main
         with:
           fail-mode: true
+      - name: Install dependencies
+        run: npm install
       - name: Build
         run: nix develop -c npm run build
       - name: Setup Pages
