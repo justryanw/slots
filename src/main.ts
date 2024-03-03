@@ -5,16 +5,47 @@ const app = new PIXI.Application<HTMLCanvasElement>({
   resizeTo: window,
 });
 
+declare global {
+  var __PIXI_APP__: PIXI.Application<HTMLCanvasElement>
+}
+globalThis.__PIXI_APP__ = app;
+
 document.body.appendChild(app.view);
 
-const bunny = PIXI.Sprite.from('https://pixijs.com/assets/bunny.png');
+const targetAspect = 1.5;
+const worldHeight = 100;
 
-app.stage.addChild(bunny);
+const world = new PIXI.Container();
+app.stage.addChild(world);
+resize(app.screen);
 
+const bunny = PIXI.Sprite.from('bunny.png');
+world.addChild(bunny);
 bunny.anchor.set(0.5);
 
-bunny.x = app.screen.width / 2;
-bunny.y = app.screen.height / 2;
+const graphics = new PIXI.Graphics();
+
+graphics.beginFill(0xDE3249, 0.3);
+graphics.lineStyle(2, 0xDE3249, 1, 0);
+graphics.drawRect(-75, -50, 150, 100);
+graphics.endFill();
+
+world.addChild(graphics);
+
+app.renderer.on('resize', (width, height) => {
+  resize({ width, height });
+});
+
+
+function resize({ width, height }: { width: number, height: number }) {
+  const aspect = width / height;
+
+  world.x = width / 2;
+  world.y = height / 2;
+
+  world.scale.x = world.scale.y = (aspect > targetAspect ? height : width / targetAspect) / worldHeight;
+}
+
 
 app.ticker.add((delta) => {
   bunny.rotation += 0.1 * delta;
