@@ -16,15 +16,6 @@ export default class World extends PIXI.Container {
         this.bunny = new Bunny(this);
     }
 
-    resize({ width, height }: { width: number, height: number }) {
-        const aspect = width / height;
-
-        this.x = width / 2;
-        this.y = height / 2;
-
-        this.scale.x = this.scale.y = (aspect > World.Aspect ? height : width / World.Aspect) / World.Height;
-    }
-
     debug() {
         const width = World.Height * World.Aspect;
         const height = World.Height;

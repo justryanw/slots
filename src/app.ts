@@ -19,13 +19,23 @@ export default class App extends PIXI.Application<HTMLCanvasElement> {
 
         this.world = new World(this.stage);
 
-        this.world.resize(this.screen);
+        this.resizeView(this.screen);
         this.renderer.on('resize', (width, height) => {
-            this.world.resize({ width, height });
+            this.resizeView({ width, height });
         });
 
         this.ticker.add((delta) => {
             this.world.bunny.update(delta);
         });
+    }
+
+    resizeView({ width, height }: { width: number, height: number }) {
+        const aspect = width / height;
+
+        const scale = (aspect > World.Aspect ? height : width / World.Aspect) / World.Height
+        this.stage.scale.set(scale);
+
+        this.world.y = height / (2 * scale);
+        this.world.x = width / (2 * scale);
     }
 }
