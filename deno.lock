@@ -1,0 +1,16 @@
+{
+  "version": "4",
+  "redirects": {
+    "https://esm.sh/randomstring": "https://esm.sh/randomstring@1.3.0"
+  },
+  "remote": {
+    "https://esm.sh/randomstring@1.3.0": "278725120d73a52fcd9efadbcedac99d75044a7343c64f7590ccc6bff1720ab1",
+    "https://esm.sh/v135/randombytes@2.0.3/denonext/randombytes.mjs": "169b0146de83ff69a6ee42d51e2426e2e84c46fc77c24a82cb9acead6714ba8c",
+    "https://esm.sh/v135/randomstring@1.3.0/denonext/randomstring.mjs": "f2b700d77e16e10c5d941902d56b22d2b52cc73a874edfe9d0f8f8108a3c9253"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@1"
+    ]
+  }
+}
