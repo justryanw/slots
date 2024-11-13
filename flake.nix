@@ -42,7 +42,10 @@
         };
 
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [ nodejs ];
+          packages = with pkgs; [
+            nix-output-monitor
+            nodejs
+          ];
         };
       }
     );
