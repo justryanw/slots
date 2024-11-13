@@ -5,6 +5,7 @@ declare global {
     var __PIXI_APP__: PIXI.Application<HTMLCanvasElement>
 }
 
+
 export default class App extends PIXI.Application<HTMLCanvasElement> {
     world: World;
 
@@ -25,7 +26,8 @@ export default class App extends PIXI.Application<HTMLCanvasElement> {
         });
 
         this.ticker.add((delta) => {
-            this.world.bunny.update(delta);
+            // this.world.bunny.play();
+            console.log(this.world.bunny.width);
         });
     }
 
