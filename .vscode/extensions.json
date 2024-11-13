@@ -1,5 +1,7 @@
 {
   "recommendations": [
-    "msjsdiag.debugger-for-chrome"
+    "denoland.vscode-deno",
+    "jnoortheen.nix-ide",
+    "mkhl.direnv"
   ]
 }
