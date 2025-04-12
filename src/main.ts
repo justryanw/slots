@@ -11,8 +11,8 @@ function resizeView(width: number, height: number) {
 	const scale = (aspect > World.Aspect ? height : width / World.Aspect) / World.Height
 	APP.stage.scale.set(scale);
 
-	WORLD.y = height / (2 * scale);
 	WORLD.x = width / (2 * scale);
+	WORLD.y = height / (2 * scale);
 }
 
 async function init() {
