@@ -1,19 +1,24 @@
 import { Container, Graphics } from 'pixi.js';
-import Bunny from './bunny';
+import ReelGroup from './Reels/ReelGroup';
+import { REELS_HEIGHT, REELS_WIDTH } from './Reels/config';
 
 export default class World extends Container {
 	static readonly Aspect = 1.5;
-	static readonly Height = 100;
+	static readonly Height = 1000;
 
-	bunny: Bunny;
+	protected reels: ReelGroup;
 
 	constructor(parent: Container) {
 		super();
 		parent.addChild(this);
 
-		this.debug();
+		this.reels = new ReelGroup();
+		this.addChild(this.reels);
 
-		this.bunny = new Bunny(this);
+		this.reels.x = -REELS_WIDTH / 2;
+		this.reels.y = -REELS_HEIGHT / 2;
+
+		this.debug();
 	}
 
 	debug() {

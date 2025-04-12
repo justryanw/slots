@@ -1,5 +1,5 @@
 import { Container, Sprite, Texture } from "pixi.js";
-import { drawDebug } from "./utils";
+import { drawDebug } from "../utils";
 
 export default class Bunny extends Sprite {
 	constructor(parent: Container) {

@@ -20,7 +20,7 @@
             src = self;
 
             # nix run nixpkgs#prefetch-npm-deps package-lock.json
-            npmDepsHash = "sha256-PNf1akfEeC05edDa8aHZXZYIh6IDeZLcYDJ7+r2ULF4=";
+            npmDepsHash = "sha256-rO6xwLOtonHmoeIZJEEopqan2k037v1aC0Mgnv8NrZc=";
             npmPackFlags = ["--ignore-scripts"];
 
             NODE_OPTIONS = "--openssl-legacy-provider";

@@ -1,6 +1,7 @@
 import { Application, Assets } from 'pixi.js';
-import World from './world';
+import World from './World/World';
 import { manifest } from './manifest';
+import { initDevtools } from '@pixi/devtools';
 
 const APP = new Application();
 let WORLD: World;
@@ -16,7 +17,10 @@ function resizeView(width: number, height: number) {
 }
 
 async function init() {
-	await APP.init({ resizeTo: window });
+	await APP.init({
+		resizeTo: window,
+		background: "#1099bb"
+	});
 	document.body.appendChild(APP.canvas);
 
 	await Assets.init({ manifest });
@@ -27,9 +31,7 @@ async function init() {
 	resizeView(APP.screen.width, APP.screen.height);
 	APP.renderer.on('resize', resizeView);
 
-	APP.ticker.add((ticker) => {
-		WORLD.bunny.update(ticker.deltaTime);
-	});
+	initDevtools({ app: APP });
 }
 
 init();
