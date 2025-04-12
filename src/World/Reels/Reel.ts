@@ -1,7 +1,7 @@
 import { Container, Text, Ticker } from "pixi.js";
 import Symbol from "./Symbol";
 import { arrayFrom, mod } from "../../utils";
-import { EXTRA_DISTANCE, SYMBOL_COUNT, SYMBOL_SPACING } from "./config";
+import { EXTRA_DISTANCE, REELS_PADDING, SYMBOL_COUNT, SYMBOL_SPACING } from "./config";
 import { APP } from "../../main";
 
 export default class Reel extends Container {
@@ -14,7 +14,6 @@ export default class Reel extends Container {
 
 		this.symbols = arrayFrom(SYMBOL_COUNT, (i) => {
 			const symbol = Symbol.random();
-			symbol.y = i * SYMBOL_SPACING;
 
 			const indexText = new Text({
 				text: i,
@@ -37,7 +36,7 @@ export default class Reel extends Container {
 
 	protected updateSymbolY() {
 		this.symbols.forEach((symbol, i) => {
-			symbol.y = (mod(i + this.offset + EXTRA_DISTANCE, SYMBOL_COUNT) - EXTRA_DISTANCE) * SYMBOL_SPACING;
+			symbol.y = (mod(i + this.offset + EXTRA_DISTANCE, SYMBOL_COUNT) - EXTRA_DISTANCE) * SYMBOL_SPACING + REELS_PADDING;
 		});
 	}
 }

@@ -9,8 +9,9 @@ export const EXTRAS = 2;
 export const EXTRA_DISTANCE = EXTRAS / 2 + 0.5;
 export const SYMBOL_COUNT = ROWS + EXTRAS;
 
-export const REELS_WIDTH = COLUMNS * SYMBOL_SPACING - SYMBOL_GAP;
-export const REELS_HEIGHT = ROWS * SYMBOL_SPACING - SYMBOL_GAP;
+export const REELS_PADDING = SYMBOL_GAP / 2;
+export const REELS_WIDTH = COLUMNS * SYMBOL_SPACING - SYMBOL_GAP + REELS_PADDING * 2;
+export const REELS_HEIGHT = ROWS * SYMBOL_SPACING - SYMBOL_GAP + REELS_PADDING * 2;
 
 export enum SymbolValue {
 	L1 = 'l1',
