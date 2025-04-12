@@ -1,7 +1,7 @@
 import { Container } from "pixi.js";
 import Reel from "./Reel";
-import { COLUMNS, SYMBOL_SPACING } from "./config";
-import { ArrayFrom } from "../../utils";
+import { COLUMNS, REELS_HEIGHT, REELS_WIDTH, SYMBOL_SPACING } from "./config";
+import { arrayFrom, drawSquare } from "../../utils";
 
 export default class ReelGroup extends Container {
 	protected reels: Reel[];
@@ -9,12 +9,14 @@ export default class ReelGroup extends Container {
 	constructor() {
 		super();
 
-		this.reels = ArrayFrom(COLUMNS, (i) => {
+		this.reels = arrayFrom(COLUMNS, (i) => {
 			const reel = new Reel()
 			reel.x = i * SYMBOL_SPACING;
 			return reel;
 		});
 
 		this.addChild(...this.reels);
+
+		drawSquare(this, REELS_WIDTH, REELS_HEIGHT)
 	}
 }

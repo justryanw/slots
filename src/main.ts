@@ -3,8 +3,8 @@ import World from './World/World';
 import { manifest } from './manifest';
 import { initDevtools } from '@pixi/devtools';
 
-const APP = new Application();
-let WORLD: World;
+export const APP = new Application();
+export let WORLD: World;
 
 function resizeView(width: number, height: number) {
 	const aspect = width / height;
