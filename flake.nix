@@ -3,18 +3,15 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      flake-utils,
-    }:
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+  }:
     flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-      in
-      rec {
+      system: let
+        pkgs = import nixpkgs {inherit system;};
+      in rec {
         packages = {
           default = pkgs.buildNpmPackage {
             pname = "slots";
@@ -22,8 +19,8 @@
             src = self;
 
             # nix run nixpkgs#prefetch-npm-deps package-lock.json
-            npmDepsHash = "sha256-1JcTvz0sAhgYwXq6AsgH7qyTJ6LQP9dNfAJUYTxe60U=";
-            npmPackFlags = [ "--ignore-scripts" ];
+            npmDepsHash = "sha256-PNf1akfEeC05edDa8aHZXZYIh6IDeZLcYDJ7+r2ULF4=";
+            npmPackFlags = ["--ignore-scripts"];
 
             NODE_OPTIONS = "--openssl-legacy-provider";
 
@@ -32,6 +29,7 @@
             '';
           };
 
+          # http://localhost:8000
           serve = pkgs.writeShellApplication {
             name = "slots";
             text = ''
