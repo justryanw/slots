@@ -1,11 +1,13 @@
-export const manifest = {
+import { AssetsManifest } from "pixi.js";
+
+export const manifest: AssetsManifest = {
 	bundles: [
 		{
-			names: 'game',
+			name: 'game',
 			assets: [
 				{
 					alias: 'bunny',
-					src: 'public/bunny.png'
+					src: 'bunny.png'
 				}
 			]
 		}
